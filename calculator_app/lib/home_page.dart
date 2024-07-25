@@ -30,9 +30,9 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 20,
             ),
-            const Text(
-              '2500',
-              style: TextStyle(
+            Text(
+              displayValue,
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
@@ -99,7 +99,10 @@ class _HomePageState extends State<HomePage> {
       padding: const EdgeInsets.all(3.0),
       child: InkWell(
         onTap: () {
-          print(buttonName);
+          setState(() {
+            displayValue =
+                isOperatorButton ? displayValue : displayValue + buttonName;
+          });
         },
         child: Container(
           width: 75,
@@ -107,7 +110,7 @@ class _HomePageState extends State<HomePage> {
           decoration: BoxDecoration(
             color: isOperatorButton
                 ? Colors.teal
-                : const Color.fromARGB(255, 46, 46, 46),
+                : const Color.fromARGB(255, 29, 29, 29),
             borderRadius: BorderRadius.circular(7),
           ),
           child: Center(
